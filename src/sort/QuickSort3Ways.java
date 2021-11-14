@@ -63,6 +63,7 @@ public class QuickSort3Ways<T> {
 
     public static void main(String[] args) throws Exception {
 
+        //branch test
         int n = 1000000;
 
         Integer[] arr = ArrayGenerator.generateRandomArray(n, 1);
