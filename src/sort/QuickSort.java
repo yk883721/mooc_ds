@@ -55,8 +55,7 @@ public class QuickSort<T> {
 
     public static void main(String[] args) throws Exception {
 
-        int[] dataSize = new int[]{10000, 1000000};
-
+        int[] dataSize = new int[]{100000, 1000000};
         for (int n : dataSize) {
             Integer[] arr = ArrayGenerator.generateOrderedArray(n);
             SortingHelper.sortTest(QuickSort::sort, arr);
