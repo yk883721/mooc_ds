@@ -13,7 +13,7 @@ public class MergeSort<T> {
     public static <T extends Comparable<T>> void sort(T[] arr){
 
         T[] temp = Arrays.copyOf(arr,arr.length);
-        sort(arr, 0, arr.length-1, temp);
+        sort(arr, 0, arr.length - 1, temp);
     }
 
     private static <T extends Comparable<T>> void sort(T[] arr,int l, int r, T[] temp){
