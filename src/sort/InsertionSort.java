@@ -24,7 +24,7 @@ public class InsertionSort {
 
     public static <T extends Comparable<T>> void sort2(T[] arr){
         // arr[0...i) 有序的，从 [i...n) 是无序的
-        for (int i = 0; i < arr.length; i++){
+        for (int i = 1; i < arr.length; i++){
             T temp = arr[i];
 
             // 由 i 开始，向前遍历，寻找合适的插入位置
@@ -46,11 +46,11 @@ public class InsertionSort {
 
     public static void main(String[] args) throws Exception {
 
-        int[] dataSize = new int[]{10000,100000};
+        int[] dataSize = new int[]{10000,10000};
 
         for (int n : dataSize) {
             Integer[] arr = ArrayGenerator.generateRandomArray(n,n+100);
-            SortingHelper.sortTest(InsertionSort::sort, arr);
+            SortingHelper.sortTest(InsertionSort::sort2, arr);
         }
     }
 
