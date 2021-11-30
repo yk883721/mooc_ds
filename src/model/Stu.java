@@ -1,7 +1,5 @@
 package model;
 
-import com.sun.org.apache.xerces.internal.xs.ShortList;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -49,9 +47,7 @@ public class Stu {
         Map<String, List<Stu>> map
                 = list.stream().collect(Collectors.groupingBy(Stu::getName));
 
-        map.forEach((key,value) -> {
-            System.out.println(key + ": " + value);
-        });
+        map.forEach((key,value) -> System.out.println(key + ": " + value));
 
     }
 
