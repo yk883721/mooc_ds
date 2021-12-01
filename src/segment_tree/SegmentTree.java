@@ -79,6 +79,32 @@ public class SegmentTree<E> {
 
         return merger.merger(leftResult, rightResult);
     }
+
+    public void set(int index,E e){
+        if(index < 0 || index >= data.length)
+            throw new IllegalArgumentException("Index is illegal");
+        data[index] = e;
+        set(0, 0, data.length - 1, index, e);
+    }
+
+    private void set(int treeIndex, int l, int r, int index, E e){
+        if (l >= r){
+            tree[treeIndex] = e;
+            return;
+        }
+
+        int mid = l + (r - l) / 2;
+        int leftChild = leftChild(treeIndex);
+        int rightChild = rightChild(treeIndex);
+        if (index >= mid + 1){
+            set(rightChild, mid + 1, r, index, e);
+        }else {
+            set(leftChild, l, mid, index, e);
+        }
+
+        tree[treeIndex] = merger.merger(tree[leftChild], tree[rightChild]);
+    }
+
     public static void main(String[] args) {
 
         Integer[] nums = {-2, 0, 3, -5, 2, -1};
