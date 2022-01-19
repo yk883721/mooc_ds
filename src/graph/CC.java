@@ -1,6 +1,7 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CC {
 
@@ -12,9 +13,7 @@ public class CC {
 
         this.G = G;
         this.visited = new int[G.V()];
-        for (int i = 0; i < visited.length; i++) {
-            visited[i] = -1;
-        }
+        Arrays.fill(visited, -1);
 
         for (int v = 0; v < G.V(); v++) {
             if (visited[v] == -1){
