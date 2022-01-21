@@ -1,4 +1,6 @@
-package graph;
+package graph.dfs;
+
+import graph.base.Graph;
 
 import java.util.Arrays;
 

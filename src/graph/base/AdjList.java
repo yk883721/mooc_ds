@@ -1,29 +1,31 @@
-package graph;
+package graph.base;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.TreeSet;
 
-// 暂时只支持无向无权图
-public class Graph {
+public class AdjList {
 
     private int V;
+
     private int E;
-    private TreeSet<Integer>[] adj;
+
+    private LinkedList<Integer>[] adj;
 
     @SuppressWarnings("unchecked")
-    public Graph(String filename){
+    public AdjList(String filename){
+
         File file = new File(filename);
-        try(Scanner scanner = new Scanner(file)) {
+        try (Scanner scanner = new Scanner(file)) {
+
             V = scanner.nextInt();
             if (V < 0){
                 throw new IllegalArgumentException("V must be non-negative");
             }
-            adj = new TreeSet[V];
+            adj = new LinkedList[V];
             for (int i = 0; i < V; i++) {
-                adj[i] = new TreeSet<>();
+                adj[i] = new LinkedList<>();
             }
 
             E = scanner.nextInt();
@@ -32,6 +34,7 @@ public class Graph {
             }
 
             for (int i = 0; i < E; i++) {
+
                 int a = scanner.nextInt();
                 validateVertex(a);
                 int b = scanner.nextInt();
@@ -47,10 +50,10 @@ public class Graph {
                 adj[a].add(b);
                 adj[b].add(a);
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
     }
 
     public int V(){
@@ -64,23 +67,28 @@ public class Graph {
     public boolean hasEdge(int v, int w){
         validateVertex(v);
         validateVertex(w);
-
         return adj[v].contains(w);
     }
 
-    public Iterable<Integer> adj(int v){
+    public LinkedList<Integer> adj(int v){
         validateVertex(v);
-
         return adj[v];
     }
 
     public int degree(int v){
-        validateVertex(v);
-        return adj[v].size();
+        return adj(v).size();
     }
 
+    private void validateVertex(int v){
+        if (v < 0 || v >= V){
+            throw new IllegalArgumentException("vertex " + v + "is invalid");
+        }
+    }
+
+
     @Override
-    public String toString(){
+    public String toString() {
+
         StringBuilder sb = new StringBuilder();
 
         sb.append(String.format("V = %d, E = %d\n", V, E));
@@ -93,18 +101,8 @@ public class Graph {
         return sb.toString();
     }
 
-
-
-    public void validateVertex(int v){
-        if (v < 0 || v >= V){
-            throw new IllegalArgumentException("vertex " + v + "is invalid");
-        }
+    public static void main(String[] args) {
+        AdjList adjList = new AdjList("g.txt");
+        System.out.print(adjList);
     }
-
-    public static void main(String[] args){
-
-        Graph g = new Graph("g.txt");
-        System.out.print(g);
-    }
-
 }
