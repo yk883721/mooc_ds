@@ -47,14 +47,14 @@ public class SingleSourcePathBFS {
         }
     }
 
-    public boolean isConnected(int t){
+    public boolean isConnectedTo(int t){
         G.validateVertex(t);
         return visited[t];
     }
 
     public Iterable<Integer> path(int t){
         ArrayList<Integer> res = new ArrayList<>();
-        if (!isConnected(t)){
+        if (!isConnectedTo(t)){
             return res;
         }
 
