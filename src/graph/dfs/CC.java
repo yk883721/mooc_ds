@@ -1,17 +1,17 @@
 package graph.dfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CC {
 
-    private Graph G;
+    private UnWeightedGraph G;
     private int[] visited;
     private int cccount = 0;
 
-    public CC(Graph G){
+    public CC(UnWeightedGraph G){
 
         this.G = G;
         this.visited = new int[G.V()];
@@ -26,9 +26,6 @@ public class CC {
     }
 
     public int count(){
-        for(int e: visited)
-            System.out.print(e + " ");
-        System.out.println();
         return cccount;
     }
 
@@ -63,7 +60,7 @@ public class CC {
 
 
     public static void main(String[] args){
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         CC cc = new CC(g);
         System.out.println(cc.count());
 

@@ -1,20 +1,20 @@
 package graph.bfs;
 
 import DummyLinkedList.LinkedListQueue;
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 import queue.Queue;
 
 import java.util.Arrays;
 
 public class CycleDetectionBFS {
 
-    private Graph G;
+    private UnWeightedGraph G;
     private boolean[] visited;
     private int[] pre;
 
     public boolean hasCycle = false;
 
-    public CycleDetectionBFS(Graph G){
+    public CycleDetectionBFS(UnWeightedGraph G){
 
         this.G = G;
         this.visited = new boolean[G.V()];
@@ -61,7 +61,7 @@ public class CycleDetectionBFS {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         CycleDetectionBFS cycleDetection = new CycleDetectionBFS(g);
         System.out.println(cycleDetection.hasCycle());
 

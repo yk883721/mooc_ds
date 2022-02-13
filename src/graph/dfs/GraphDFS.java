@@ -1,13 +1,13 @@
 package graph.dfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 import java.util.ArrayList;
 import java.util.Stack;
 
 public class GraphDFS {
 
-    private Graph G;
+    private UnWeightedGraph G;
 
     private boolean[] visited;
 
@@ -15,7 +15,7 @@ public class GraphDFS {
 
     private ArrayList<Integer> post = new ArrayList<>();
 
-    public GraphDFS(Graph G){
+    public GraphDFS(UnWeightedGraph G){
 
         this.G = G;
         this.visited = new boolean[G.V()];
@@ -69,7 +69,7 @@ public class GraphDFS {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         GraphDFS graphDFS = new GraphDFS(g);
         System.out.println(graphDFS.pre());
 //        System.out.println(graphDFS.post());

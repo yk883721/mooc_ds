@@ -1,13 +1,13 @@
 package graph.dfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 public class AllPairsPath {
 
-    private Graph G;
+    private UnWeightedGraph G;
     private SingleSourcePath[] paths;
 
-    public AllPairsPath(Graph G){
+    public AllPairsPath(UnWeightedGraph G){
 
         this.G = G;
         paths = new SingleSourcePath[G.V()];
@@ -34,7 +34,7 @@ public class AllPairsPath {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         AllPairsPath paths = new AllPairsPath(g);
 
         System.out.println("0 -> 3 : " + paths.path(0, 3));

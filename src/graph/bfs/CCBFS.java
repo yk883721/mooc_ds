@@ -1,19 +1,19 @@
 package graph.bfs;
 
 import DummyLinkedList.LinkedListQueue;
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 import queue.Queue;
 
 import java.util.ArrayList;
 
 public class CCBFS {
 
-    private Graph G;
+    private UnWeightedGraph G;
 
     private int[] visited;
     private int cccount = 0;
 
-    public CCBFS(Graph G){
+    public CCBFS(UnWeightedGraph G){
 
         this.G = G;
         this.visited = new int[G.V()];
@@ -72,7 +72,7 @@ public class CCBFS {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         CCBFS cc = new CCBFS(g);
         System.out.println(cc.count());
 

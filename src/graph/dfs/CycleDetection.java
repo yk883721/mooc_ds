@@ -1,14 +1,14 @@
 package graph.dfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 public class CycleDetection {
 
-    private Graph G;
+    private UnWeightedGraph G;
     private boolean[] visited;
     private boolean hasCycle = false;
 
-    public CycleDetection(Graph G){
+    public CycleDetection(UnWeightedGraph G){
 
         this.G = G;
         this.visited = new boolean[G.V()];
@@ -44,7 +44,7 @@ public class CycleDetection {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         CycleDetection cycleDetection = new CycleDetection(g);
         System.out.println(cycleDetection.hasCycle());
 

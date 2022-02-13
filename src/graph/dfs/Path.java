@@ -1,6 +1,6 @@
 package graph.dfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,11 +10,11 @@ public class Path {
 
     private int s, t;
 
-    private final Graph G;
+    private final UnWeightedGraph G;
     private boolean[] visited;
     private int[] pre;
 
-    public Path(Graph G, int s, int t){
+    public Path(UnWeightedGraph G, int s, int t){
         G.validateVertex(s);
         G.validateVertex(t);
 
@@ -72,7 +72,7 @@ public class Path {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
 
         Path path = new Path(g, 0, 6);
         System.out.println("0 -> 6 : " + path.path());

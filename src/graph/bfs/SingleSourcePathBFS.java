@@ -1,18 +1,18 @@
 package graph.bfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 import java.util.*;
 
 public class SingleSourcePathBFS {
 
-    private Graph G;
+    private UnWeightedGraph G;
     private int s;
 
     private boolean[] visited;
     private int[] pre;
 
-    public SingleSourcePathBFS(Graph G, int s){
+    public SingleSourcePathBFS(UnWeightedGraph G, int s){
 
         this.G = G;
         this.s = s;
@@ -72,7 +72,7 @@ public class SingleSourcePathBFS {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         SingleSourcePathBFS sspath = new SingleSourcePathBFS(g, 0);
         System.out.println("0 -> 6 : " + sspath.path(6));
     }

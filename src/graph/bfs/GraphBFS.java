@@ -1,20 +1,19 @@
 package graph.bfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class GraphBFS {
 
-    private Graph G;
+    private UnWeightedGraph G;
     private boolean[] visited;
     private ArrayList<Integer> orders = new ArrayList<>();
 
 
-    public GraphBFS(Graph G){
+    public GraphBFS(UnWeightedGraph G){
         this.G = G;
         visited = new boolean[G.V()];
 
@@ -51,7 +50,7 @@ public class GraphBFS {
 
     public static void main(String[] args) {
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         GraphBFS graphBFS = new GraphBFS(g);
         System.out.println("BFS Order : " + graphBFS.order());
 

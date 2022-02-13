@@ -1,18 +1,18 @@
 package graph.bfs;
 
 import DummyLinkedList.LinkedListQueue;
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 import queue.Queue;
 
 public class BipartitionDetectionBFS {
 
-    private Graph G;
+    private UnWeightedGraph G;
     private boolean[] visited;
     private int[] colors;
 
     private boolean isBipartite = true;
 
-    public BipartitionDetectionBFS(Graph G){
+    public BipartitionDetectionBFS(UnWeightedGraph G){
         this.G = G;
         this.visited = new boolean[G.V()];
         this.colors = new int[G.V()];
@@ -54,7 +54,7 @@ public class BipartitionDetectionBFS {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         BipartitionDetectionBFS bipartitionDetection = new BipartitionDetectionBFS(g);
         System.out.println(bipartitionDetection.isBipartite);
         // true

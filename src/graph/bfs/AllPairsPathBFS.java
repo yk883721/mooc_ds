@@ -1,13 +1,13 @@
 package graph.bfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 public class AllPairsPathBFS {
 
-    private Graph G;
+    private UnWeightedGraph G;
     private SingleSourcePathBFS paths[];
 
-    public AllPairsPathBFS(Graph G){
+    public AllPairsPathBFS(UnWeightedGraph G){
         this.G = G;
         paths = new SingleSourcePathBFS[G.V()];
         for (int v = 0; v < G.V(); v++) {

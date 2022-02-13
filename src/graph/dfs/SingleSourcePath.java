@@ -1,6 +1,6 @@
 package graph.dfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,14 +8,14 @@ import java.util.Collections;
 
 public class SingleSourcePath {
 
-    private Graph G;
+    private UnWeightedGraph G;
     private int s;
 
     private boolean[] visited;
     private int pre[];
 
 
-    public SingleSourcePath(Graph G, int s){
+    public SingleSourcePath(UnWeightedGraph G, int s){
 
         G.validateVertex(s);
 
@@ -64,7 +64,7 @@ public class SingleSourcePath {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         SingleSourcePath sspath = new SingleSourcePath(g, 4);
         System.out.println("4 -> 4 : " + sspath.path(4));
         System.out.println("4 -> 3 : " + sspath.path(3));

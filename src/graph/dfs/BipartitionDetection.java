@@ -1,18 +1,18 @@
 package graph.dfs;
 
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 
 import java.util.Arrays;
 
 public class BipartitionDetection {
 
-    private Graph G;
+    private UnWeightedGraph G;
 
     private boolean[] visited;
     private int[] colors;
     private boolean isBipartite = true;
 
-    public BipartitionDetection(Graph G){
+    public BipartitionDetection(UnWeightedGraph G){
 
         this.G = G;
         this.visited = new boolean[G.V()];
@@ -51,7 +51,7 @@ public class BipartitionDetection {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         BipartitionDetection bipartitionDetection = new BipartitionDetection(g);
         System.out.println(bipartitionDetection.isBipartite);
         // true

@@ -1,7 +1,7 @@
 package graph.bfs;
 
 import DummyLinkedList.LinkedListQueue;
-import graph.base.Graph;
+import graph.base.UnWeightedGraph;
 import queue.Queue;
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.Collections;
 
 public class USSSPath {
 
-    private Graph G;
+    private UnWeightedGraph G;
 
     private int s;
 
@@ -17,7 +17,7 @@ public class USSSPath {
     private int[] pre;
     private int[] dist;
 
-    public USSSPath(Graph G, int s){
+    public USSSPath(UnWeightedGraph G, int s){
 
         this.G = G;
         this.s = s;
@@ -86,7 +86,7 @@ public class USSSPath {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        UnWeightedGraph g = new UnWeightedGraph("g.txt");
         USSSPath ussspath = new USSSPath(g, 0);
         System.out.println("0 -> 6 : " + ussspath.path(6));
         System.out.println("0 -> 6 : " + ussspath.dist(6));
